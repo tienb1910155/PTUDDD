@@ -3,7 +3,10 @@ import '../../models/product.dart';
 
 class UserProductListTile extends StatelessWidget{
   final Product product;
-  const UserProductListTile(this.product{super.key,});
+  const UserProductListTile(
+    this.product, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context){
@@ -28,7 +31,7 @@ class UserProductListTile extends StatelessWidget{
     return IconButton(
       icon: const Icon(Icons.delete),
       onPressed: () async {
-        print('Go to edit product screen');
+        print('Go to delete product screen');
       },
       color: Theme.of(context).errorColor,
     );
