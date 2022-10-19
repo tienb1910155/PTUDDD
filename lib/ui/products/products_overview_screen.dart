@@ -33,15 +33,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   }
 
   Widget buildShoppingCartIcon(){
-    // return IconButton(
-    //   icon: const Icon(
-    //     Icons.shopping_cart,
-    //   ),
-    //   onPressed: () {
-    //     // print('go to cart screen');
-    //     Navigator.of(context).pushNamed(CartScreen.routeName);
-    //   },
-    // );
     return Consumer<CartManager>(
       builder: (ctx, cartManager, child) {
         return TopRightBadge(
