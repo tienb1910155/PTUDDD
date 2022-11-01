@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import './products_manager.dart';
 import '../../models/product.dart';
+import 'edit_product_screen.dart';
 import 'package:provider/provider.dart';
 
 class UserProductListTile extends StatelessWidget{
   final Product product;
   const UserProductListTile(
-    this.product, {
-    super.key,
-  });
+      this.product, {
+        super.key,
+      });
 
   @override
   Widget build(BuildContext context){
@@ -36,15 +37,15 @@ class UserProductListTile extends StatelessWidget{
         // print('Go to delete product screen');
         context.read<ProductsManager>().deleteProduct(product.id!);
         ScaffoldMessenger.of(context)
-        ..hideCurrentMaterialBanner()
-        ..showSnackBar(
-          const SnackBar(
-            content: Text(
-              'Product deleted',
-              textAlign: TextAlign.center,
+          ..hideCurrentMaterialBanner()
+          ..showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Product deleted',
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-        );
+          );
       },
       color: Theme.of(context).errorColor,
     );
@@ -54,7 +55,11 @@ class UserProductListTile extends StatelessWidget{
     return IconButton(
       icon: const Icon(Icons.edit),
       onPressed: () {
-        print('Go to edit product screen');
+        // print('Go to edit product screen');
+        Navigator.of(context).pushNamed(
+          EditProductScreen.routeName,
+          arguments: product.id,
+        );
       },
       color: Theme.of(context).primaryColor,
     );

@@ -15,7 +15,6 @@ class UserProductsScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    final productsManager = ProductsManager();
     return Scaffold(
         appBar: AppBar(
           title: const Text('Your Products'),
@@ -34,14 +33,14 @@ class UserProductsScreen extends StatelessWidget{
             }
             return RefreshIndicator(
               onRefresh: () => _refreshProducts(context),
-              child: buildUserProductListView(productsManager),
+              child: buildUserProductListView(),
             );
           },
         )
     );
   }
 
-  Widget buildUserProductListView(ProductsManager productsManager){
+  Widget buildUserProductListView(){
     return Consumer<ProductsManager>(
       builder: (ctx, productsManager, child){
         return ListView.builder(
@@ -70,4 +69,5 @@ class UserProductsScreen extends StatelessWidget{
       icon: const Icon(Icons.add),
     );
   }
+
 }

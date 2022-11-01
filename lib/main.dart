@@ -4,7 +4,7 @@ import 'ui/screen.dart';
 
 import 'package:provider/provider.dart';
 
-void main() async{
+Future<void> main() async{
   await dotenv.load(); //load .env file
   runApp(const MyApp());
 }
