@@ -16,7 +16,7 @@ class ProductsGrid extends StatelessWidget{
     // final products =
     //   showFavorites ? productsManager.favoriteItems : productsManager.items;
     final products = context.select<ProductsManager, List<Product>>(
-        (productsManager) => showFavorites
+            (productsManager) => showFavorites
             ? productsManager.favoriteItems
             : productsManager.items);
     return GridView.builder(
@@ -24,10 +24,10 @@ class ProductsGrid extends StatelessWidget{
       itemCount: products.length,
       itemBuilder: (ctx, i) => ProductGridTile(products[i]),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2,
-      childAspectRatio: 3 / 2,
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
       ),
     );
   }
